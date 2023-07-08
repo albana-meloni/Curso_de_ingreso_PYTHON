@@ -9,7 +9,7 @@ Enunciado:
 Para el departamento de facturación:
     A.	Ingresar tres precios de productos y mostrar la suma de los mismos.
     B.	Ingresar tres precios de productos y mostrar el promedio de los mismos.
-	C.	ingresar tres precios de productos sumarlos y mostrar precio final (más IVA 21%).
+	C.	Ingresar tres precios de productos sumarlos y mostrar precio final (más IVA 21%).
 '''
 
 class App(customtkinter.CTk):
@@ -37,7 +37,7 @@ class App(customtkinter.CTk):
         
         self.txt_importe_3 = customtkinter.CTkEntry(master=self)
         self.txt_importe_3.grid(row=2, column=1)
-       
+        
         self.btn_total = customtkinter.CTkButton(master=self, text="TOTAL", command=self.btn_total_on_click)
         self.btn_total.grid(row=3, pady=10, columnspan=2, sticky="nsew")
         
@@ -48,15 +48,35 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        producto_uno = int(self.txt_importe_1.get())
+        producto_dos = int(self.txt_importe_2.get())
+        producto_tres = int(self.txt_importe_3.get())
+
+        resultado_total = producto_uno + producto_dos + producto_tres
+
+        mensaje = "El total a pagar por los tres productos es ${0}".format(resultado_total)
+        alert("Total a pagar", mensaje)
 
     def btn_promedio_on_click(self):
-        pass
+        producto_uno = int(self.txt_importe_1.get())
+        producto_dos = int(self.txt_importe_2.get())
+        producto_tres = int(self.txt_importe_3.get())
+
+        resultado_promedio = (producto_uno + producto_dos + producto_tres) / 3
+
+        mensaje = "El promedio de precio de los tres productos es ${0}".format(resultado_promedio)
+        alert("Promedio de Productos", mensaje)
 
     def btn_total_iva_on_click(self):
-        pass      
-    
+        producto_uno = int(self.txt_importe_1.get())
+        producto_dos = int(self.txt_importe_2.get())
+        producto_tres = int(self.txt_importe_3.get())
+
+        resultado_iva = (producto_uno + producto_dos + producto_tres) * 1.21
+
+        mensaje = "El total a pagar por los tres productos + IVA (21%) es ${0}".format(resultado_iva)
+        alert("Total a pagar con IVA", mensaje)
+
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()

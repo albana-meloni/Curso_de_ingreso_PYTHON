@@ -5,14 +5,13 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Albana
+apellido: Meloni
 ---
-Ejercicio: entrada_salida_04
+Ejercicio: instrucion_if_01
 ---
 Enunciado:
-Al presionar el botón  'Mostrar', se deberá obtener un nombre utilizando el Dialog Prompt 
-y luego mostrarlo en la caja de texto txt_nombre (.delete / .insert )
+Al presionar el botón  'Mostrar', se deberá obtener contenido en la caja de texto txt_edad, transformarlo en número, si coincide con el valor 18, mostrar el mensaje “Usted tiene 18 años” utilizando el Dialog Alert.
 '''
 
 class App(customtkinter.CTk):
@@ -23,21 +22,26 @@ class App(customtkinter.CTk):
         # configure window
         self.title("UTN FRA")
 
-        self.label1 = customtkinter.CTkLabel(master=self, text="Nombre")
+        self.label1 = customtkinter.CTkLabel(master=self, text="Edad")
         self.label1.grid(row=0, column=0, padx=20, pady=10)
         
-        self.txt_nombre = customtkinter.CTkEntry(master=self)
-        self.txt_nombre.grid(row=0, column=1)
-        
+        self.txt_edad = customtkinter.CTkEntry(master=self)
+        self.txt_edad.grid(row=0, column=1)
+                
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        pass
+        edad_guardada = int(self.txt_edad.get())
+        mensaje = "Usted tiene otra edad de 18 años"
+
+        if edad_guardada == 18:
+            mensaje = "Usted tiene 18 años"
+            alert("Tu edad", mensaje)
         
-    
+        alert("Tu edad", mensaje)
+
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()
