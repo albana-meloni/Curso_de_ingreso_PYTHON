@@ -17,9 +17,7 @@ en función del mes seleccionado:
     Si ya pasó el invierno: ‘¡Ya pasamos frío, ahora calor!’
 	
 Aclaracion: tomamos a Julio y Agosto como los meses de invierno
-
 '''
-
 
 class App(customtkinter.CTk):
     
@@ -42,7 +40,7 @@ class App(customtkinter.CTk):
         mes_elegido = self.combobox_mes.get()
         mensaje = ""
 
-        match(mes_elegido):
+        match mes_elegido:
             case "Julio" | "Agosto":
                 mensaje = "¡Abrígate que hace frío!"
             case "Enero" | "Febrero" | "Marzo" | "Abril" | "Mayo" | "Junio":
@@ -50,7 +48,7 @@ class App(customtkinter.CTk):
             case _:
                 mensaje = "¡Ya pasamos frío, ahora calor!"
 
-        alert("¿En qué estación estamos?", mensaje)
+        alert("¿Hace frío o calor?", mensaje)
 
 if __name__ == "__main__":
     app = App()

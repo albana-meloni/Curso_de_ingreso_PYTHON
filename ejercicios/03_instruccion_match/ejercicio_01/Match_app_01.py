@@ -43,7 +43,7 @@ class App(customtkinter.CTk):
         mes_elegido = self.combobox_mes.get()
         mensaje = "No estas en un mes con fechas especiales"
 
-        match(mes_elegido):
+        match mes_elegido:
             case "Enero":
                 mensaje = "Que comiences bien el año!!!"
             case "Marzo":
