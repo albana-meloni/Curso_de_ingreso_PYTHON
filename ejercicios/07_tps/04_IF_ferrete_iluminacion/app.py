@@ -46,6 +46,84 @@ class App(customtkinter.CTk):
         total = lamparita * cantidad
         descuento = 0
 
+        # IF - MATCH -----------------------------------------------------------------------------------
+        if cantidad > 5:
+            descuento = 50
+        elif cantidad == 5:
+            match marca:
+                case "ArgentinaLuz":
+                    descuento = 40
+                case _:
+                    descuento = 30
+        elif cantidad == 4:
+            match marca:
+                case "ArgentinaLuz" | "FelipeLamparas":
+                    descuento = 25
+                case _:
+                    descuento = 20
+        elif cantidad == 3:
+            match marca:
+                case "ArgentinaLuz":
+                    descuento = 15
+                case "FelipeLamparas":
+                    descuento = 10
+                case _:
+                    descuento = 5
+
+
+
+        # MATCH - IF -----------------------------------------------------------------------------------
+        match cantidad:
+            case 6 | 7 | 8 | 9 | 10 | 11 | 12:
+                descuento = 50
+            case 5:
+                if marca == "ArgentinaLuz":
+                    descuento = 40
+                else:
+                    descuento = 30
+            case 4:
+                if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                    descuento = 25
+                else:
+                    descuento = 20
+            case 3:
+                if marca == "ArgentinaLuz":
+                    descuento = 15
+                elif marca == "FelipeLamparas":
+                    descuento = 10
+                else:
+                    descuento = 5
+
+
+
+        # MATCH - MATCH  -----------------------------------------------------------------------------------
+        match cantidad:
+            case 6 | 7 | 8 | 9 | 10 | 11 | 12:
+                descuento = 50
+            case 5:
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = 40
+                    case _:
+                        descuento = 30
+            case 4:
+                match marca:
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                        descuento = 25
+                    case _:
+                        descuento = 20
+            case 3:
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = 15
+                    case "FelipeLamparas":
+                        descuento = 10
+                    case _:
+                        descuento = 5
+
+
+
+        # IF - IF -----------------------------------------------------------------------------------
         if cantidad > 5:
             descuento = 50
         elif cantidad == 5:
@@ -66,6 +144,10 @@ class App(customtkinter.CTk):
             else:
                 descuento = 5
         
+
+
+
+        # SALIDAS -----------------------------------------------------------------------------------
         total_descuento = total - (total * descuento/100)
         mensaje = "Al comprar {0} lamparitas de bajo consumo marca {1} tiene un descuento del {2}% y el total a pagar es: ${3}".format(cantidad, marca, descuento, total_descuento)
 
@@ -74,6 +156,7 @@ class App(customtkinter.CTk):
             mensaje = mensaje + "\n Como el importe supera los $4.000 le ofrecemos un 5% de descuento adicional \nEl total final a pagar es: ${0}".format(total_descuento_extra)
 
         alert("Factura X", mensaje)
+
 
 if __name__ == "__main__":
     app = App()

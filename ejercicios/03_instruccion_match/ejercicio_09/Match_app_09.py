@@ -66,7 +66,7 @@ class App(customtkinter.CTk):
             match destino_elegido:
                 case "Bariloche":
                     aumento = 20
-                case "Cataratas" | "Córdoba":
+                case "Cataratas" | "Cordoba":
                     descuento = 10
                 case "Mar del plata":
                     descuento = 20
@@ -74,7 +74,7 @@ class App(customtkinter.CTk):
             match destino_elegido:
                 case "Bariloche":
                     descuento = 20
-                case "Cataratas" | "Córdoba":
+                case "Cataratas" | "Cordoba":
                     aumento = 10
                 case "Mar del plata":
                     aumento = 20

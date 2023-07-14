@@ -9,8 +9,7 @@ import random
 '''
 Adivina el número (v 1.0):
 Al comenzar el juego generamos un número secreto del 1 al 100, en la pantalla del juego dispondremos de un cuadro de texto 
-para ingresar un número y un botón “Verificar”, si el número ingresado es el mismo que el número secreto se dará por terminado
- el juego con un mensaje similar a este: 
+para ingresar un número y un botón “Verificar”, si el número ingresado es el mismo que el número secreto se dará por terminado el juego con un mensaje similar a este: 
 
 “Ganaste en X intentos”.
 de no ser igual se debe informar si 
@@ -26,6 +25,9 @@ class App(customtkinter.CTk):
         # configure window
         self.title("UTN Fra")
 
+        self.label1 = customtkinter.CTkLabel(master=self, text="Adivine el número ->")
+        self.label1.grid(row=0, column=0, padx=10, pady=10)
+
         self.txt_numero = customtkinter.CTkEntry(master=self)
         self.txt_numero.grid(row=0, column=1)
 
@@ -37,8 +39,20 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero_ingresado = int(self.txt_numero.get())
+        self.numero_intento += 1
+        numeros_faltantes = 0
 
+        if numero_ingresado == self.numero_secreto:
+            mensaje = "¡GANASTE! \n¡Adivinaste el número secreto en el {0}° intento!".format(self.numero_intento)
+        elif numero_ingresado > self.numero_secreto:
+            numeros_faltantes = numero_ingresado - self.numero_secreto
+            mensaje = "¡VOLVÉ A INTENTARLO! \nTodavía no descubriste el número secreto, te pasaste por {0} número(s)\nCantidad de intentos: {1}".format(numeros_faltantes, self.numero_intento)
+        else:
+            numeros_faltantes = self.numero_secreto - numero_ingresado
+            mensaje = "¡VOLVÉ A INTENTARLO! \nTodavía no descubriste el número secreto, te falta {0} número(s)\nCantidad de intentos: {1}".format(numeros_faltantes, self.numero_intento)
+
+        alert("RESULTADO", mensaje)
 
 if __name__ == "__main__":
     app = App() 

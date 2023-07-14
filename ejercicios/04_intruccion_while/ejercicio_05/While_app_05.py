@@ -33,7 +33,7 @@ class App(customtkinter.CTk):
             alert("error", "la letra ingresada no está permitida")
             letra_ingresada = prompt("letra", "ingresar una letra")
         
-        alert("alert", "la letra ingresada es correcta 👍🏻")
+        alert("alert", "la letra ingresada es correcta")
 
 
 if __name__ == "__main__":
