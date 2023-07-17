@@ -9,8 +9,7 @@ nombre: Albana
 apellido: Meloni
 
 Enunciado:
-Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera, 
-hasta que presione el botón Cancelar (en el prompt) o el usuario ingrese cero. 
+Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera, hasta que presione el botón Cancelar (en el prompt) o el usuario ingrese cero. 
 Calcular la suma acumulada de los positivos y multiplicar los negativos. 
 Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_producto
 
