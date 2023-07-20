@@ -8,8 +8,7 @@ import customtkinter
 nombre: Albana
 apellido: Meloni
 
-Al presionar el botón Mostrar pedir un número. mostrar los números pares desde 
-el 1 al número ingresado, y mostrar la cantidad de números pares encontrados.
+Al presionar el botón Mostrar pedir un número. mostrar los números pares desde el 1 al número ingresado, y mostrar la cantidad de números pares encontrados.
 '''
 
 class App(customtkinter.CTk):
@@ -25,9 +24,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-    
+        numero_ingresado = int(prompt("numeritos","ingrese un número"))
+        contador_pares = 0
+        for numero in range(0,numero_ingresado,2):
+            contador_pares += 1
+            alert("mensaje", "número par encontrado: {0}\nnúmeros pares encontrados en total: {1}".format(numero,contador_pares))
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

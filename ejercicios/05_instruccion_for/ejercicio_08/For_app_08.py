@@ -24,7 +24,21 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero_ingresado = int(prompt("numerito", "ingrese un número"))
+        contador_divisores = 0
+        for numero in range(1,numero_ingresado+1):
+            division = numero_ingresado / numero
+            if division.is_integer() == True:
+                contador_divisores += 1
+
+        if contador_divisores == 2:
+            mensaje = "este número es primo"
+        elif contador_divisores == 1 or contador_divisores == 0:
+            mensaje = "este número no es ni primo ni compuesto *mind explotion*"
+        else:
+            mensaje = "este número no es primo, es compuesto"
+        alert("mensaje", mensaje)
+
     
 if __name__ == "__main__":
     app = App()

@@ -8,8 +8,7 @@ import customtkinter
 nombre: Albana
 apellido: Meloni
 
-Al presionar el botón Mostrar repetir el mensaje “¿Desea continuar?” (utilizando el Dialog QUESTION) 
-hasta que el usuario conteste que no (se deberá utilizar 'BREAK').
+Al presionar el botón Mostrar repetir el mensaje “¿Desea continuar?” (utilizando el Dialog QUESTION) hasta que el usuario conteste que no (se deberá utilizar 'BREAK').
 '''
 
 class App(customtkinter.CTk):
@@ -25,9 +24,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-    
+        for numero in range(100):
+            pregunta = question("kwes·chn","¿Desea continuar?")
+            if pregunta == False:
+                break
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

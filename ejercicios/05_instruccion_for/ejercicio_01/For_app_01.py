@@ -26,7 +26,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        # está recorriendo (x) en (x)
+        # se utiliza para cuando SABES la cantidad de vueltas que vas a dar
+        for numero in range(5):
+            numero += 1
+            alert("alerta", numero)
 
 if __name__ == "__main__":
     app = App()
