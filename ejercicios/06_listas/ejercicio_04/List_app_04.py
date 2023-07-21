@@ -5,8 +5,10 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-Al presionar el botón 'MÍNIMO' se analizará el vector lista_datos a efectos de determinar cuál es el número 
-más chico allí contenido el cual deberá ser informado utilizando Dialog Alert.
+nombre: Albana
+apellido: Meloni
+
+Al presionar el botón 'MÍNIMO' se analizará el vector lista_datos a efectos de determinar cuál es el número más chico allí contenido el cual deberá ser informado utilizando Dialog Alert.
 '''
 
 class App(customtkinter.CTk):
@@ -24,7 +26,12 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        minimo = self.lista_datos[0]
+        for numero in self.lista_datos:
+            if numero < minimo:
+                minimo = numero
+
+        alert("MÍNIMO", minimo)
     
     
 if __name__ == "__main__":
